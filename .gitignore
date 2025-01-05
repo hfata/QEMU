@@ -5,6 +5,10 @@
 *.o
 *.ko
 *.obj
+*.cyclo
+*.bin
+*.list
+*.mk
 *.elf
 
 # Linker output

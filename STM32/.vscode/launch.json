@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "QEMU Debug",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}\\debug\\STM32_QEMU.elf",
+      "miDebuggerServerAddress": "localhost:1234",
+      "MIMode": "gdb",
+      "miDebuggerPath": "arm-none-eabi-gdb",
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "externalConsole": true,
+      "useExtendedRemote": true,
+      "preLaunchTask": "Run QEMU"
+    }
+  ]
+}

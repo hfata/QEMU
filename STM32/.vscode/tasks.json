@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build QEMU",
+      "type": "shell",
+      "command": "make all --directory=debug",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run QEMU",
+      "type": "shell",
+      "hide": true,
+      "isBackground": true,
+      "command": "echo 'Starting QEMU'; qemu-system-arm -S -M stm32vldiscovery -kernel debug\\STM32_QEMU.elf -monitor none -nographic -serial stdio -s",
+      "problemMatcher": {
+        "pattern": {
+            "regexp": "^(Starting QEMU)",
+            "line": 1,
+        },
+        "background": {
+            "activeOnStart": true,
+            "beginsPattern": "Starting QEMU",
+            "endsPattern": "Starting QEMU"
+        }
+      },
+      "dependsOn": ["Build QEMU"],
+    },
+    {
+      "label": "Build and Run QEMU",
+      "dependsOrder": "sequence",
+      "dependsOn": ["Build QEMU", "Run QEMU"],
+      "problemMatcher": []
+    }
+  ]
+}
